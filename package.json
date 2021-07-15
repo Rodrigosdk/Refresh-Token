@@ -25,6 +25,7 @@
       "typeorm": "0.2.34"
    },
    "scripts": {
-      "start": "ts-node src/index.ts"
+      "dev": "ts-node-dev src/server.ts",
+      "orm": "ts-node-dev ./node_modules/typeorm/cli.js"
    }
 }
