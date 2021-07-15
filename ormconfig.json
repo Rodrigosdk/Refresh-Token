@@ -1,24 +1,14 @@
 {
-   "type": "postgres",
-   "host": "localhost",
-   "port": 5435,
-   "username": "any",
-   "password": "any",
-   "database": "refresh-token",
-   "synchronize": true,
-   "logging": false,
-   "entities": [
-      "src/entity/**/*.ts"
-   ],
-   "migrations": [
-      "src/migration/**/*.ts"
-   ],
-   "subscribers": [
-      "src/subscriber/**/*.ts"
-   ],
-   "cli": {
-      "entitiesDir": "src/data/entity",
-      "migrationsDir": "src/data/migration",
-      "subscribersDir": "src/data/subscriber"
-   }
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5435,
+  "username": "postgres",
+  "password": "any",
+  "database": "refresh-token",
+  "entities": ["src/data/entity/**/*.ts"],
+  "migrations": ["src/data/migration/**/*.ts"],
+  "cli": {
+    "entitiesDir": "src/data/entity",
+    "migrationsDir": "src/data/migration"
+  }
 }
