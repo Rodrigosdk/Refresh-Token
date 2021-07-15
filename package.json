@@ -1,0 +1,15 @@
+{
+  "name": "refresh-token",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Rodrigosdk/refresh-token.git",
+  "author": "Rodrigo Mamede <rodrigomamede53@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  }
+}
