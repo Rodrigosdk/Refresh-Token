@@ -20,13 +20,16 @@
    },
    "dependencies": {
       "express": "^4.17.1",
-      "mysql": "^2.14.1",
       "pg": "^8.6.0",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.34",
-      "uuid": "^8.3.2"
+      "uuid": "^8.3.2",
+      "rimraf": "^3.0.2"
    },
    "scripts": {
+      "start": "node dist/main/api",
+      "clean": "rimraf dist",
+      "build": "yarn clean && tsc",
       "dev": "ts-node-dev src/server.ts",
       "orm": "ts-node-dev ./node_modules/typeorm/cli.js"
    }
