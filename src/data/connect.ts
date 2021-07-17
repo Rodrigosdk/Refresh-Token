@@ -1,5 +1,10 @@
 import { createConnection } from 'typeorm';
 
-createConnection()
-  .then(() => console.log('📦 Successfully connected to database'))
-  .catch((error) => console.log('❌', error));
+export async function connecteDB() {
+  try {
+    await createConnection();
+    console.log('📦 Successfully connected to database');
+  } catch (error) {
+    console.log('❌', error);
+  }
+}
