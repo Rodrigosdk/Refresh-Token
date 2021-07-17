@@ -28,10 +28,14 @@
       "uuid": "^8.3.2"
    },
    "scripts": {
-      "start": "node dist/server.js",
+      "start": "NODE_ENV=dev node dist/server.js",
+      "start:docker": "NODE_ENV=production node src/server.js",
       "clean": "rimraf dist",
       "build": "yarn clean && tsc",
-      "dev": "ts-node-dev src/server.ts",
-      "orm": "ts-node-dev ./node_modules/typeorm/cli.js"
+      "up": "yarn build && docker-compose up -d",
+      "down": "docker-compose down",
+      "dev": "NODE_ENV=dev ts-node-dev src/server.ts",
+      "orm": "ts-node-dev ./node_modules/typeorm/cli.js",
+      "orm:docker": "./node_modules/typeorm/cli.js"
    }
 }

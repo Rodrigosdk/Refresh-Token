@@ -1,0 +1,30 @@
+version: '3'
+services:
+    db:
+        image: "postgres:latest"
+        restart: always
+        volumes: 
+            - ./src/data/db:/usr/refresh-token/src/data/db/postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: admin
+            POSTGRES_DB: refresh-token
+        ports: 
+            - "5432:5432"
+
+    api:
+        container_name: 'api-container'
+        image: "node:14"
+        working_dir: /usr/refresh-token
+        restart: always
+        volumes: 
+            - ./package.json:/usr/refresh-token/package.json
+            - ./ormconfig.js:/usr/refresh-token/ormconfig.js
+            - ./dist:/usr/refresh-token/src
+            - ./.env.production:/usr/refresh-token/.env.production
+        command: bash -c  "yarn --production=true && yarn orm:docker migration:run && yarn start:docker"
+        ports: 
+            - "3333:3333"
+        depends_on:
+            - db
+        
