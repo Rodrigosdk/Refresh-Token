@@ -1,4 +1,7 @@
 import express from 'express';
+import { Error } from './middlewares/Error';
+import { CreateUserController } from './controller/CreateUserController';
+import 'express-async-errors';
 
 export class App {
     private app: express.Application;
@@ -13,10 +16,11 @@ export class App {
     private middlewares(): void {
       this.app.use(express.json());
       this.routes();
+      this.app.use(Error);
     }
 
     private routes(): void {
-      this.app.get('/', (req, res) => res.send('oi'));
+      this.app.post('/user', CreateUserController.handle);
     }
 
     listen(callback?: () => void): void {
