@@ -1,6 +1,10 @@
 import express from 'express';
+
 import { Error } from './middlewares/Error';
+
 import { CreateUserController } from './controller/CreateUserController';
+import { AuthenticationUserController } from './controller/AuthenticationUserController';
+
 import 'express-async-errors';
 
 export class App {
@@ -21,6 +25,7 @@ export class App {
 
     private routes(): void {
       this.app.post('/user', CreateUserController.handle);
+      this.app.post('/authenticat', AuthenticationUserController.handle);
     }
 
     listen(callback?: () => void): void {
