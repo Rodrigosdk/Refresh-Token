@@ -4,16 +4,16 @@ import { v4 } from 'uuid';
 @Entity('users')
 export class UserEntity {
     @PrimaryColumn()
-    id: String;
+    id: string;
 
     @Column()
-    name: String;
+    name: string;
 
     @PrimaryColumn()
-    username: String;
+    username: string;
 
     @Column()
-    password: String;
+    password: string;
 
     constructor() {
       if (!this.id) {
