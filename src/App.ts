@@ -6,6 +6,7 @@ import { CreateUserController } from './controller/CreateUserController';
 import { AuthenticationUserController } from './controller/AuthenticationUserController';
 
 import 'express-async-errors';
+import { ensureAuthentication } from './middlewares/ensureAuthentication';
 
 export class App {
   private app: express.Application;
@@ -26,7 +27,9 @@ export class App {
   private routes(): void {
     this.app.post('/user', CreateUserController.handle);
     this.app.post('/authenticat', AuthenticationUserController.handle);
-    this.app.get('/home', (request: Request, res: Response) => { res.send('Hello word'); });
+    this.app.get('/home', ensureAuthentication, (request: Request, response: Response) => {
+      response.send('Hello word');
+    });
   }
 
   listen(callback?: () => void): void {
